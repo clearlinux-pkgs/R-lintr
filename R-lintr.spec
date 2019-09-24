@@ -4,25 +4,37 @@
 #
 Name     : R-lintr
 Version  : 1.0.3
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/lintr_1.0.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lintr_1.0.3.tar.gz
-Summary  : A Linter for R Code
+Summary  : A 'Linter' for R Code
 Group    : Development/Tools
 License  : MIT
+Requires: R-crayon
+Requires: R-digest
+Requires: R-httr
+Requires: R-igraph
+Requires: R-jsonlite
+Requires: R-knitr
+Requires: R-rex
+Requires: R-rstudioapi
+Requires: R-stringdist
+Requires: R-testthat
+BuildRequires : R-crayon
+BuildRequires : R-digest
 BuildRequires : R-httr
 BuildRequires : R-igraph
 BuildRequires : R-jsonlite
+BuildRequires : R-knitr
 BuildRequires : R-rex
 BuildRequires : R-rstudioapi
 BuildRequires : R-stringdist
+BuildRequires : R-testthat
 BuildRequires : buildreq-R
 
 %description
-# lintr
-[![Travis-CI Build Status](https://travis-ci.org/jimhester/lintr.svg?branch=master)](https://travis-ci.org/jimhester/lintr)
-[![codecov.io](https://codecov.io/github/jimhester/lintr/coverage.svg?branch=master)](http://codecov.io/github/jimhester/lintr?branch=master)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/lintr)](https://cran.r-project.org/package=lintr)
+semantic issues.  Supports on the fly checking of R code edited with 'RStudio IDE', 'Emacs',
+    'Vim', 'Sublime Text' and 'Atom'.
 
 %prep
 %setup -q -c -n lintr
@@ -31,13 +43,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556491126
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569291444
 
 %install
-export SOURCE_DATE_EPOCH=1556491126
+export SOURCE_DATE_EPOCH=1569291444
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -66,7 +78,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
