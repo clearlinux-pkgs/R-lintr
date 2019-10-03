@@ -4,10 +4,10 @@
 #
 Name     : R-lintr
 Version  : 1.0.3
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/lintr_1.0.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lintr_1.0.3.tar.gz
-Summary  : A 'Linter' for R Code
+Summary  : A Linter for R Code
 Group    : Development/Tools
 License  : MIT
 Requires: R-crayon
@@ -33,8 +33,10 @@ BuildRequires : R-testthat
 BuildRequires : buildreq-R
 
 %description
-semantic issues.  Supports on the fly checking of R code edited with 'RStudio IDE', 'Emacs',
-    'Vim', 'Sublime Text' and 'Atom'.
+# lintr
+[![Travis-CI Build Status](https://travis-ci.org/jimhester/lintr.svg?branch=master)](https://travis-ci.org/jimhester/lintr)
+[![codecov.io](https://codecov.io/github/jimhester/lintr/coverage.svg?branch=master)](http://codecov.io/github/jimhester/lintr?branch=master)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/lintr)](https://cran.r-project.org/package=lintr)
 
 %prep
 %setup -q -c -n lintr
@@ -44,10 +46,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569291444
+export SOURCE_DATE_EPOCH=1570111630
 
 %install
-export SOURCE_DATE_EPOCH=1569291444
+export SOURCE_DATE_EPOCH=1570111630
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
