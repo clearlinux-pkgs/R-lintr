@@ -4,10 +4,10 @@
 #
 Name     : R-lintr
 Version  : 2.0.1
-Release  : 11
+Release  : 12
 URL      : https://cran.r-project.org/src/contrib/lintr_2.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lintr_2.0.1.tar.gz
-Summary  : A Linter for R Code
+Summary  : A 'Linter' for R Code
 Group    : Development/Tools
 License  : MIT
 Requires: R-crayon
@@ -35,28 +35,27 @@ BuildRequires : R-xmlparsedata
 BuildRequires : buildreq-R
 
 %description
-# lintr
-[![Travis-CI Build Status](https://travis-ci.org/jimhester/lintr.svg?branch=master)](https://travis-ci.org/jimhester/lintr)
-[![codecov.io](https://codecov.io/github/jimhester/lintr/coverage.svg?branch=master)](https://codecov.io/github/jimhester/lintr?branch=master)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/lintr)](https://cran.r-project.org/package=lintr) [![Join the chat at https://gitter.im/jimhester-lintr/Lobby](https://badges.gitter.im/jimhester-lintr/Lobby.svg)](https://gitter.im/jimhester-lintr/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+semantic issues.  Supports on the fly checking of R code edited with 'RStudio IDE', 'Emacs',
+    'Vim', 'Sublime Text' and 'Atom'.
 
 %prep
 %setup -q -c -n lintr
+cd %{_builddir}/lintr
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582124516
+export SOURCE_DATE_EPOCH=1589827604
 
 %install
-export SOURCE_DATE_EPOCH=1582124516
+export SOURCE_DATE_EPOCH=1589827604
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
