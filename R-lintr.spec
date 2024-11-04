@@ -7,7 +7,7 @@
 #
 Name     : R-lintr
 Version  : 3.1.2
-Release  : 41
+Release  : 42
 URL      : https://cran.r-project.org/src/contrib/lintr_3.1.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lintr_3.1.2.tar.gz
 Summary  : A 'Linter' for R Code
